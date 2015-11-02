@@ -39,6 +39,7 @@ class Andromeda_APIs(Signature):
         try:
             eventname_int = int(eventname)
             if self.sysvolserial and eventname_int == self.sysvolserial ^ 0x696e6a63: # 'injc'
+                self.add_match(process, 'api', call)
                 return True
         except:
             pass
